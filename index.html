@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PokéAlerte</title>
+<style>
+  :root {
+    --bg: #f6f7fb; --card: #ffffff; --text: #1b1f2a; --muted: #6b7280;
+    --line: #e5e7ef; --accent: #e3350d; --ok: #1a8f4c; --warn: #b7791f; --bad: #9ca3af;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11131a; --card: #1a1d27; --text: #eef0f6; --muted: #9aa1b2;
+            --line: #2a2e3b; --accent: #ff5a3a; --ok: #3ddc84; --warn: #f0b429; --bad: #6b7280; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: var(--bg); color: var(--text); line-height: 1.5; }
+  header { padding: 28px 16px 8px; max-width: 760px; margin: 0 auto; }
+  h1 { margin: 0; font-size: 1.7rem; letter-spacing: -.02em; }
+  h1 span { color: var(--accent); }
+  .sub { color: var(--muted); margin: 4px 0 0; font-size: .95rem; }
+  main { max-width: 760px; margin: 0 auto; padding: 8px 16px 48px; display: grid; gap: 16px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  h2 { margin: 0 0 12px; font-size: 1.05rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 10px 0; border-top: 1px solid var(--line); display: flex; gap: 12px;
+       justify-content: space-between; align-items: baseline; }
+  li:first-child { border-top: 0; padding-top: 0; }
+  a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); }
+  .tag { font-size: .8rem; padding: 2px 10px; border-radius: 999px; white-space: nowrap;
+         border: 1px solid currentColor; }
+  .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+  .muted { color: var(--muted); font-size: .85rem; }
+  .empty { color: var(--muted); font-style: italic; }
+  .steps { margin: 0; padding-left: 20px; color: var(--text); }
+  .steps li { display: list-item; border: 0; padding: 4px 0; }
+  code { background: var(--bg); padding: 1px 6px; border-radius: 6px; font-size: .9em; }
+  #updated { text-align: center; color: var(--muted); font-size: .8rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Poké<span>Alerte</span></h1>
+  <p class="sub">Sorties, actus et restocks Pokémon — Puy-de-Dôme</p>
+</header>
+
+<main>
+  <section>
+    <h2>Prochaines sorties</h2>
+    <ul id="releases"><li class="empty">Chargement…</li></ul>
+  </section>
+
+  <section>
+    <h2>Stocks surveillés</h2>
+    <ul id="products"><li class="empty">Chargement…</li></ul>
+  </section>
+
+  <section>
+    <h2>Dernières actus</h2>
+    <ul id="news"><li class="empty">Chargement…</li></ul>
+  </section>
+
+  <section>
+    <h2>Recevoir les notifications sur mon téléphone</h2>
+    <ol class="steps">
+      <li>Installez l'application gratuite <strong>ntfy</strong> (Android / iPhone).</li>
+      <li>Abonnez-vous à votre sujet privé (le nom que vous avez choisi dans <code>NTFY_TOPIC</code>).</li>
+      <li>Vous recevez une alerte à chaque nouvelle actu, rappel de sortie ou restock détecté, toutes les 15 minutes au plus.</li>
+    </ol>
+  </section>
+
+  <p id="updated"></p>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = u => /^https?:\/\//i.test(u) ? u : "#";
+
+function render(list, el, html, emptyMsg) {
+  el.innerHTML = list && list.length ? list.map(html).join("") : `<li class="empty">${emptyMsg}</li>`;
+}
+
+fetch("data/feed.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(feed => {
+    render(feed.releases, $("releases"), r => {
+      const d = new Date(r.date + "T00:00:00");
+      const label = d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+      let tag = r.days > 0 ? `dans ${r.days} j` : r.days === 0 ? "aujourd'hui" : "sortie";
+      const cls = r.days === 0 ? "ok" : r.days > 0 && r.days <= 7 ? "warn" : "bad";
+      return `<li><span>${esc(r.name)}<br><span class="muted">${label}</span></span><span class="tag ${cls}">${tag}</span></li>`;
+    }, "Aucune sortie renseignée dans config.json.");
+
+    render(feed.products, $("products"), p => {
+      const map = { "en stock": ["ok", "En stock"], "rupture": ["bad", "Rupture"], "erreur": ["warn", "Erreur"], "inconnu": ["warn", "Inconnu"] };
+      const [cls, txt] = map[p.status] || ["warn", p.status];
+      return `<li><a href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener">${esc(p.name)}</a><span class="tag ${cls}">${txt}</span></li>`;
+    }, "Aucun produit surveillé. Ajoutez des liens dans config.json.");
+
+    render(feed.news, $("news"), n =>
+      `<li><a href="${esc(safeUrl(n.link))}" target="_blank" rel="noopener">${esc(n.title)}</a></li>`,
+      "Aucune actu pour le moment.");
+
+    if (feed.updated) {
+      $("updated").textContent = "Dernière vérification : " +
+        new Date(feed.updated).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
+    }
+  })
+  .catch(() => {
+    ["releases", "products", "news"].forEach(id =>
+      $(id).innerHTML = '<li class="empty">Pas encore de données : la première vérification n\'a pas eu lieu.</li>');
+  });
+</script>
+</body>
+</html>

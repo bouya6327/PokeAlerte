@@ -1,0 +1,20 @@
+{
+  "releases": [
+    { "name": "Exemple : prochaine extension (à remplacer)", "date": "2026-11-13" }
+  ],
+  "news_feeds": [
+    {
+      "name": "Google Actualités – Pokémon TCG",
+      "url": "https://news.google.com/rss/search?q=pokemon+tcg+sortie+OR+precommande+OR+restock&hl=fr&gl=FR&ceid=FR:fr"
+    }
+  ],
+  "news_keywords": ["pokémon", "pokemon"],
+  "products": [
+    {
+      "name": "Exemple : coffret Pokémon chez Leclerc (à remplacer par votre lien)",
+      "url": "https://www.example.com/produit-pokemon",
+      "in_stock_phrases": ["ajouter au panier", "ajouter au caddie", "retrait en magasin disponible"],
+      "out_of_stock_phrases": ["rupture de stock", "indisponible", "épuisé", "bientôt disponible"]
+    }
+  ]
+}
