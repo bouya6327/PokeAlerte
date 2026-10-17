@@ -104,26 +104,71 @@ def check_news(cfg, state, feed):
     feed["news"] = items[:30]
 
 
+BUYABLE = ("en stock", "précommande")
+DEFAULT_IN = ["ajouter au panier", "ajouter au caddie", "add to cart"]
+DEFAULT_OUT = ["rupture de stock", "en rupture", "indisponible", "épuisé", "out of stock",
+               "sold out", "prévenez-moi lorsque", "bientôt disponible"]
+
+# Données structurées (schema.org / balises meta) : plus fiables que le texte de la page.
+_AVAIL = re.compile(
+    r'availability["\']?\s*[:=]?\s*["\']?[^<>]{0,80}?'
+    r'(InStock|OutOfStock|SoldOut|PreOrder|PreSale|BackOrder|LimitedAvailability|'
+    r'Discontinued|InStoreOnly|OnlineOnly)', re.I)
+_META = re.compile(r'(?:product|og):availability["\']?\s+content=["\']([^"\']+)', re.I)
+_MAP = {"instock": "en stock", "limitedavailability": "en stock", "onlineonly": "en stock",
+        "instoreonly": "en stock", "preorder": "précommande", "presale": "précommande",
+        "backorder": "précommande", "outofstock": "rupture", "soldout": "rupture",
+        "discontinued": "rupture", "oos": "rupture"}
+
+
+def structured_status(raw):
+    m = _AVAIL.search(raw)
+    if m:
+        return _MAP.get(m.group(1).lower())
+    m = _META.search(raw)
+    if m:
+        return _MAP.get(re.sub(r"[^a-z]", "", m.group(1).lower()))
+    return None
+
+
+def detect_status(p, raw):
+    """detect: "auto" (défaut) = données structurées puis phrases ; "structured" ; "phrases"."""
+    mode = p.get("detect", "auto")
+    if mode in ("auto", "structured"):
+        s = structured_status(raw)
+        if s:
+            return s
+        if mode == "structured":
+            return "inconnu"
+    html = re.sub(r"\s+", " ", raw.lower())
+    if any(x.lower() in html for x in p.get("out_of_stock_phrases", DEFAULT_OUT)):
+        return "rupture"
+    if any(x.lower() in html for x in p.get("in_stock_phrases", DEFAULT_IN)):
+        return "en stock"
+    return "inconnu"
+
+
 def check_products(cfg, state, feed):
     res = []
+    first_run = not state.get("_stock_init")
+    seen = False
     for p in cfg.get("products", []):
-        status = "inconnu"
         try:
-            html = re.sub(r"\s+", " ", fetch(p["url"]).lower())
-            if any(x in html for x in p.get("out_of_stock_phrases", [])):
-                status = "rupture"
-            elif any(x in html for x in p.get("in_stock_phrases", [])):
-                status = "en stock"
+            status = detect_status(p, fetch(p["url"]))
         except Exception as e:
             print("produit KO:", p["name"], e)
             status = "erreur"
         key = "stock|" + p["url"]
         prev = state.get(key)
-        if status == "en stock" and prev != "en stock":
-            notify("RESTOCK Pokémon", f"{p['name']} semble de nouveau disponible !", p["url"])
-        if status in ("en stock", "rupture"):
+        if status in BUYABLE and status != prev and not first_run:
+            label = "PRÉCOMMANDE" if status == "précommande" else "RESTOCK"
+            notify(f"{label} Pokémon", f"{p['name']} : {status} !", p["url"])
+        if status in BUYABLE or status == "rupture":
             state[key] = status
+            seen = True
         res.append({"name": p["name"], "url": p["url"], "status": status})
+    if seen:
+        state["_stock_init"] = True  # 1er passage silencieux : on enregistre l'état de départ
     feed["products"] = res
 
 

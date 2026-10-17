@@ -1,8 +1,13 @@
 {
   "releases": [
-    { "name": "Exemple : prochaine extension (à remplacer)", "date": "2026-11-13" }
+    { "name": "Decks Combat 30 ans Mentali-ex / Noctali-ex", "date": "2026-10-30" },
+    { "name": "Premium Métamorph, Ultra-Premium Journée/Soirée, Figurines Mew & Mewtwo", "date": "2026-11-06" }
   ],
   "news_feeds": [
+    {
+      "name": "Google Actualités – Pokémon 30 ans",
+      "url": "https://news.google.com/rss/search?q=pokemon+30+ans+restock+OR+precommande+OR+ultra-premium&hl=fr&gl=FR&ceid=FR:fr"
+    },
     {
       "name": "Google Actualités – Pokémon TCG",
       "url": "https://news.google.com/rss/search?q=pokemon+tcg+sortie+OR+precommande+OR+restock&hl=fr&gl=FR&ceid=FR:fr"
@@ -10,11 +15,36 @@
   ],
   "news_keywords": ["pokémon", "pokemon"],
   "products": [
-    {
-      "name": "Exemple : coffret Pokémon chez Leclerc (à remplacer par votre lien)",
-      "url": "https://www.example.com/produit-pokemon",
-      "in_stock_phrases": ["ajouter au panier", "ajouter au caddie", "retrait en magasin disponible"],
-      "out_of_stock_phrases": ["rupture de stock", "indisponible", "épuisé", "bientôt disponible"]
-    }
+    { "name": "Blazingtail – ETB Dresseur d'élite 30 ans", "url": "https://www.blazingtail.fr/108987-etb-pokemon-30eme-anniversaire.html" },
+    { "name": "Blazingtail – Collection Poster 30 ans", "url": "https://www.blazingtail.fr/108990-coffret-poster-pokemon-30eme-anniversaire.html" },
+    { "name": "Blazingtail – Coffret Amphinobi-ex 30 ans", "url": "https://www.blazingtail.fr/109002-coffret-premium-pokemon-30eme-anniversaire-amphinobi.html" },
+
+    { "name": "Smyths – ETB Dresseur d'élite 30 ans", "url": "https://www.smythstoys.com/fr/fr-fr/jouets/jeux-de-societe-et-puzzles/cartes-a-collectionner/cartes-pokemon/pokemon-coffret-dresseur-delite-30eme-anniversaire/p/261821" },
+    { "name": "Smyths – Collection Poster 30 ans", "url": "https://www.smythstoys.com/fr/fr-fr/jouets/jeux-de-societe-et-puzzles/cartes-a-collectionner/cartes-pokemon/pokemon-coffret-collection-poster/p/261814" },
+    { "name": "Smyths – Coffret Amphinobi-ex 30 ans", "url": "https://www.smythstoys.com/fr/fr-fr/jouets/jeux-de-societe-et-puzzles/cartes-a-collectionner/cartes-pokemon/pokemon-coffret-amphinobi-ex-30eme-anniversaire/p/261830" },
+    { "name": "Smyths – Deck Combat 30 ans", "url": "https://www.smythstoys.com/fr/fr-fr/jouets/jeux-de-societe-et-puzzles/cartes-a-collectionner/cartes-pokemon/pokemon-deck-du-dresseur-combat-30e-anniversaire-modele-aleatoire/p/261786" },
+
+    { "name": "Play-In – ETB Dresseur d'élite 30 ans", "url": "https://www.play-in.com/fr/produit/659570/coffret-dresseur-d-elite-etb-pokemon-30-ans-fr" },
+    { "name": "Play-In – Collection autocollant Noadkoko d'Alola", "url": "https://www.play-in.com/fr/produit/659371/collection-autocollant-reajustable-30-ans-noadkoko-d-alola-pokemon-fr" },
+    { "name": "Play-In – Collection K.O. Évoli", "url": "https://www.play-in.com/fr/produit/659418/collection-k-o-30e-anniversaire-evoli-pokemon-fr" },
+    { "name": "Play-In – Collection Poster", "url": "https://www.play-in.com/fr/produit/659419/coffret-collection-poster-30e-anniversaire-pokemon-fr" },
+    { "name": "Play-In – Coffret Nymphali-ex", "url": "https://www.play-in.com/fr/produit/659425/coffret-30e-anniversaire-nymphali-ex-pokemon-fr" },
+    { "name": "Play-In – Coffret Amphinobi-ex", "url": "https://www.play-in.com/fr/produit/659558/coffret-30e-anniversaire-amphinobi-ex-pokemon-fr" },
+    { "name": "Play-In – Boîte Pokémon-ex Amphinobi", "url": "https://www.play-in.com/fr/produit/659622/pokebox-30e-anniversaire-amphinobi-ex-pokemon-fr" },
+    { "name": "Play-In – Collection Classeur", "url": "https://www.play-in.com/fr/produit/659587/coffret-collection-classeur-pokemon-30-ans-fr" },
+    { "name": "Play-In – Lot de 6 boosters", "url": "https://www.play-in.com/fr/produit/659626/bundle-6-boosters-30e-anniversaire-pokemon-fr" },
+    { "name": "Play-In – Mini-boîte Jour Mentali", "url": "https://www.play-in.com/fr/produit/659629/mini-tin-30e-anniversaire-jour-mentali-pokemon-fr" },
+    { "name": "Play-In – Mini-boîte Jour Pikachu", "url": "https://www.play-in.com/fr/produit/659632/mini-tin-30e-anniversaire-jour-pikachu-pokemon-fr" },
+    { "name": "Play-In – Mini-boîte Jour Mew", "url": "https://www.play-in.com/fr/produit/659633/mini-tin-30e-anniversaire-jour-mew-pokemon-fr" },
+    { "name": "Play-In – Mini-boîte Nuit Électhor", "url": "https://www.play-in.com/fr/produit/659636/mini-tin-30e-anniversaire-nuit-electhor-pokemon-fr" },
+    { "name": "Play-In – Mini-boîte Nuit Mewtwo", "url": "https://www.play-in.com/fr/produit/659638/mini-tin-30e-anniversaire-nuit-mewtwo-pokemon-fr" },
+    { "name": "Play-In – Mini-boîte Nuit Amphinobi", "url": "https://www.play-in.com/fr/produit/659640/mini-tin-30-ans-nuit-amphinobi-pokemon-fr" },
+    { "name": "Play-In – Deck Combat Mentali-ex", "url": "https://www.play-in.com/fr/produit/659641/deck-combat-30e-anniversaire-mentali-ex-pokemon-fr" },
+    { "name": "Play-In – Deck Combat Noctali-ex", "url": "https://www.play-in.com/fr/produit/659642/deck-combat-30e-anniversaire-noctali-ex-pokemon-fr" },
+    { "name": "Play-In – Collection Premium Métamorph", "url": "https://www.play-in.com/fr/produit/659643/collection-premium-metamorph-30e-anniversaire-pokemon-fr" },
+    { "name": "Play-In – Ultra-Premium Journée (Mentali)", "url": "https://www.play-in.com/fr/produit/659644/coffret-collection-ultra-premium-30e-anniversaire-journee-mentali-pokemon-fr" },
+    { "name": "Play-In – Ultra-Premium Soirée (Noctali)", "url": "https://www.play-in.com/fr/produit/659645/coffret-collection-ultra-premium-30e-anniversaire-soiree-noctali-pokemon-fr" },
+    { "name": "Play-In – Collection figurine Mew", "url": "https://www.play-in.com/fr/produit/659646/collection-avec-figurine-30-anniversaire-mew-pokemon-fr" },
+    { "name": "Play-In – Collection figurine Mewtwo", "url": "https://www.play-in.com/fr/produit/659647/collection-avec-figurine-30-anniversaire-mewtwo-pokemon-fr" }
   ]
 }
