@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T11:30:01Z",
+ "updated": "2026-11-02T12:20:28Z",
  "releases": [
   {
    "name": "Decks Combat 30 ans Mentali-ex / Noctali-ex",
@@ -146,6 +146,12 @@
    "source": "Google Actualités – Pokémon 30 ans"
   },
   {
+   "title": "Jeu de cartes Pokémon : Calendrier des sorties 2026 du JCC Pokémon - Margxt",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1CX0RyVmZ3SlZsRXpYdlZsanl1UEVOSWVrczJSZVVxU3htY1A1ckhIWURzR0c0SWlWRzl4dGNqdDNPNWNQUTNTaUhCcENKYjZXYUM0dklzMXNCZWtsNzhmdjQ4a01IcWZxOEE?oc=5",
+   "date": "Thu, 24 Sep 2026 07:00:00 GMT",
+   "source": "Google Actualités – Pokémon TCG"
+  },
+  {
    "title": "JCC Pokémon Pocket : Fusion Double bientôt disponible - Pokemon.com",
    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbE1QbmZqel9PRzhqMjBrdG9ZLU94SzB1WjFrMjJFQU56eWkyWkxTcHllLXN0bDVGd0xjQVA5VFphVGhKa2l3cEFiVHVUWDhwT3FkUllzSzhXMWRtWldQeGJ4UkZnNzJ0YXhmUXVRM0ZTVzZ3QVR5UUU5STlrV3FEU1BNWkNaUlQydHd3VXVEcmE0STA?oc=5",
    "date": "Tue, 20 Oct 2026 07:00:00 GMT",
@@ -164,9 +170,9 @@
    "source": "Google Actualités – Pokémon TCG"
   },
   {
-   "title": "Pokémon 30 ans : la deuxième vague est sortie, voici les cartes les plus chères - Journal du Geek",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNYnEzZzdyMXUxRk1nYzB5LWFhaFRUV295Nms4cm1xRjhTMUIxRTRSeGRmM1ZVU3RMY1RSU2otaXBRZXpCSWVKN3lqUk1ncmc0Z0JIWFdLZGxhSTJacDJEdXU3UzNCbG9WbVptdTh1YUw0MDdHSFMtbXZOdi0tcXlaU2YtZmx1a2FlVTJGT25xUTlHVWV6Y2h6RnlXNFhuVWVjOUlpY19haHM4UC13eHFiSHE3b2dBMi05d3pWSl92TXM?oc=5",
-   "date": "Mon, 05 Oct 2026 07:00:00 GMT",
+   "title": "Prix, cartes rares et rupture de stock... tout savoir sur la nouvelle vague de l'extension 30 ans du TCG Pokémon - Journal du Geek",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQNlpfVkNmQ01JMzQwSDFFcFF0bHZ0SjAxWXp5aGIxajI0MzBDRXFxejFzRE9xZmoyZUVabHAzb0NBZ01pQmJZMWxFY3BtaE83MkwxazlyT21GNFpJUzRzOERGQkYtcVh0M0xTcUdPanJCMVFXa3RnREFpMmFWMnVOTWcwSFNwdWoyQWcyMG5PSmk0MklBWWpvaW53QndDbzJmVVZwbmF1NHFmR2dPVG5Id2xwNER5WGctaGtJR1hjSW0?oc=5",
+   "date": "Fri, 02 Oct 2026 07:00:00 GMT",
    "source": "Google Actualités – Pokémon TCG"
   },
   {
@@ -176,21 +182,15 @@
    "source": "Google Actualités – Pokémon TCG"
   },
   {
-   "title": "Pokémon Pocket présente sa prochaine extension mettant en avant Méga-Rayquaza - Gamekult",
-   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNZXRNTjlvSmJBbzI0WjVLc1VTd0ZXMktrcVZGZE9TcEprbzZjT1pUUHFYU28wNTNadVd3c0hxSlVpVWpVRWVDeXBXZW9sOWRXSHlWNnNpVkZYb3h6OWR2R3pBVmhHTXJfVHJsYS1EdmQ4U3kwTXlVdVBuR3d0RTY5c3pOTEFwclcxNHVBRmZndl9RVFl6MWNDTjVlZ3RhX3MtVWszTTJzWEVpLUdudXp2Rk5INU8xTWZYWDFnN3hoVW9nSElIMk9DNDBEa2FzV2QtU0JudVVsdnFVLTM4NDhnY25kRE1CVFJl?oc=5",
-   "date": "Sun, 21 Jun 2026 07:00:00 GMT",
-   "source": "Google Actualités – Pokémon TCG"
-  },
-  {
    "title": "JCC Pokémon Pocket : Domination Céleste bientôt disponible - Pokemon.com",
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQenJJTG9pOTVqTU9lQ1YzWG5MMjd0cVpJaEpDSXA1NHZCcUtsVEM5VDU4andwTDFxTnVqR3pUT2FwOTZNejJmcDFWTnV0Z1hMZ1B3RlJzN3BtT0NPaGgweXJDdGlSZ2toRl95SllqajdVMVJNWFJ0eDF3Mm96dFhtWEliV3Bhdmx1cklldlZYd0hzVGl4Y3Znd213?oc=5",
    "date": "Thu, 23 Jul 2026 14:08:13 GMT",
    "source": "Google Actualités – Pokémon TCG"
   },
   {
-   "title": "Pokémon: Wild Card, un film dédié au TCG, annoncé pour 2027 - IGN France",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOdE1aSlBYWlJJUjdINGk3RE9EejVXZTRxYVN4a2tGUVVIWmh4c1dkOVUzSmMyeU5mdlNraEJuZGdrQzIxckNaVEVPc1NwWGg4UFdCajEtTjhtQ3pQZ2FvRmdKUG1ZX01Tc0xMdHpjbElxcEV3ZUY3a0VFOGYxR21NbHBka09WbmdFbFp1NnRKWndNSjQ?oc=5",
-   "date": "Mon, 31 Aug 2026 07:00:00 GMT",
+   "title": "Pokemon TCG Pocket Merveilles de Paldea : trailer et date de sortie de l’extension - WorldOfGeek",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNU25KaXNCYVlBUlFZSlBTVHVMbFZGU0VEMWdYY3RLVHdzOFNjaXh2eml2TnNPcXNKM196dE14dUdZMzV4SXhYWFBTS3RjMmM0RjRrV0piZmpkWEx3TG1mMGxuY3NETlNyQXB2Sm1MQ0M2OGxnTjNTR3hNdUJSU2RTQkpvdWkydw?oc=5",
+   "date": "Fri, 20 Feb 2026 08:00:00 GMT",
    "source": "Google Actualités – Pokémon TCG"
   }
  ],
